@@ -1,4 +1,3 @@
-const LiveReloader = require('./live-reload');
 const StatusBar = require('./status-bar');
 const Settings = require('./settings');
 

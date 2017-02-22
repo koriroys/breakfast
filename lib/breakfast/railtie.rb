@@ -7,15 +7,9 @@ module Breakfast
     config.breakfast = ActiveSupport::OrderedOptions.new
 
     config.before_configuration do |app|
-      config.breakfast.html_reload_strategy = :turbolinks
-      config.breakfast.js_reload_strategy = :page
-      config.breakfast.css_reload_strategy = :hot
-      config.breakfast.ruby_reload_strategy = :off
-
       config.breakfast.asset_output_folder = Rails.root.join("public", "assets")
       config.breakfast.source_code_folders = [Rails.root.join("app")]
       config.breakfast.environments = %w(development)
-      config.breakfast.status_bar_location = :bottom
       config.breakfast.digest = !(Rails.env.development? || Rails.env.test?)
     end
 
@@ -41,11 +35,6 @@ module Breakfast
         Thread.new do
           Breakfast::BrunchWatcher.spawn(log: Rails.logger)
         end
-
-        Breakfast::CompilationListener.start(
-          asset_output_folder: config.breakfast.asset_output_folder,
-          source_code_folders: config.breakfast.source_code_folders
-        )
       end
     end
 

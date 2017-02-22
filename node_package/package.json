@@ -9,9 +9,6 @@
   },
   "author": "Patrick Koperwas",
   "license": "MIT",
-  "dependencies": {
-    "actioncable": "^5.0.0"
-  },
   "devDependencies": {
     "babel-cli": "^6.10.1",
     "babel-core": "^6.10.4",
